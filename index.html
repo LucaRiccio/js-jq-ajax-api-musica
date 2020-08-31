@@ -15,18 +15,27 @@
             </div>
         </header>
 
+        <!-- Select per filtro genere-->
+        <select id="scelta" class="" name="">
+          <option value="All">All</option>
+          <option value="Rock">Rock</option>
+          <option value="Pop">Pop</option>
+          <option value="Metal">Metal</option>
+          <option value="Jazz">Jazz</option>
+        </select>
+
         <div class="cds-container container">
             <!-- Disco ad esempio -->
-            <div class="cd">
+            <!-- <div class="cd">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRXEp4LYMrXjz5gusutHVtvJxwvbXYYKIl0aA&usqp=CAU" alt="">
                 <h3>Ten's Summoners Tales</h3>
                 <span class="author">Sting</span>
                 <span class="year">1993</span>
-            </div>
+            </div> -->
         </div>
 
         <script id="entry-template" type="text/x-handlebars-template">
-          <div class="cd">
+          <div class="cd {{genre}}">
               <img src="{{poster}}" alt="">
               <h3>{{title}}</h3>
               <span class="author">{{author}}</span>

@@ -12,20 +12,31 @@ $(document).ready(function(){
       url: "https://flynn.boolean.careers/exercises/api/array/music",
       method: "GET",
       success: function(risposta){
-
         for (var i = 0; i < risposta.response.length; i++){
-          console.log(risposta.response[i]);
-          var cd = risposta.response[i];
+          // console.log(risposta.response[i]);
+          var cd = risposta.response[i]; // Salvo in una variabile risposta.response[i], riceverò un oggetto, e sarà il muo context per HB
           var source = document.getElementById("entry-template").innerHTML;
           var template = Handlebars.compile(source);
           var html = template(cd);
-          $(".cds-container.container").append(html);
+          $(".cds-container.container").append(html); // Aggiungo al DOM.
         }
-
       },
       error: function(){
         alert("È avvenuto un errore.");
      }
     }
   );
+
+  //Costruzione select
+  $("#scelta option").click(function(){ // Al click di una option della select.
+    var genere = $(this).html(); // Salvo in una variabile l'html dell' elemento cliccato.
+
+    if (genere == "All"){ // Se genere è uguale al value "All".
+      $(".cd").show(); // mostra la classe "cd".
+    } else{ //altrimenti..
+      $(".cd").hide(); //Nascondi la classe "cd".
+      $(".cd." + genere).show() // mostra la coppia classe "cd" + var genere.
+    }
+  });
+
 });
